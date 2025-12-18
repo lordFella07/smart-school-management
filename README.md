@@ -8,10 +8,13 @@ git push origin feature/login-page
 
 git checkout epul
 
+<<<<<<< HEAD
 git merge main
 
 git pull <!-- dalam branch 'main' >
 
+=======
+>>>>>>> 1232532a3abdbc44a7797f0bc28c206dbd4cead9
 test test test
 
 follow coding ni untuk sidebar
