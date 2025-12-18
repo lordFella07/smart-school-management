@@ -22,9 +22,15 @@ git merge main
 
 git pull <!-- dalam branch 'main' >
 
+<<<<<<< HEAD
 
 
 Coding
+=======
+test test test
+
+follow coding ni untuk sidebar
+>>>>>>> 8fa7c857dcd1025e7402c2bf18311dc7d348de66
 
 <!-- SIDEBAR -->
     <div class="sidebar">
