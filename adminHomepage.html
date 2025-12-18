@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Homepage</title>
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">Smart School System</div>
+
+        <ul class="menu-list">
+            <li><i class="ri-home-2-line"></i><span>Home</span></li>
+
+            <li class="dropdown">
+                <i class="ri-folder-user-line"></i>
+                <span>Class List</span>
+                <i class="ri-arrow-down-s-line arrow"></i>
+            </li>
+
+            <ul class="submenu">
+                <li>Class A</li>
+                <li>Class B</li>
+                <li>Class C</li>
+            </ul>
+
+            <li><i class="ri-team-line"></i><span>Teacher List</span></li>
+            <li><i class="ri-open-arm-line"></i><span>Student List</span></li>
+            <li><i class="ri-shield-check-line"></i><span>Validate teacher account</span></li>
+        </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="topbar">
+            <h3>Hi, Admin</h3>
+
+            <button id="darkToggle" class="dark-btn">
+                <i class="ri-moon-line"></i>
+            </button>
+        </div>
+
+        <div class="card-box">
+
+            <div class="card" onclick="location.href='class.html'">
+                <img src="assets/image/class.png">
+                <p>Class</p>
+            </div>
+
+            <div class="card" onclick="location.href='student.html'">
+                <img src="assets/image/student.png">
+                <p>Student Management</p>
+            </div>
+
+            <div class="card" onclick="location.href='validateTeacher.html'">
+                <img src="assets/image/verify.png">
+                <p>Validate teacher account</p>
+            </div>
+
+            <div class="card" onclick="location.href='teacherList.html'">
+                <img src="assets/image/teacher.png">
+                <p>Teacher List</p>
+            </div>
+
+            <div class="card" onclick="location.href='classList.html'">
+                <img src="assets/image/classlist.png">
+                <p>Class List</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    // DARK MODE
+    document.getElementById("darkToggle").addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+    });
+
+    // DROPDOWN
+    const dropdown = document.querySelector(".dropdown");
+    const submenu = document.querySelector(".submenu");
+    
+    dropdown.addEventListener("click", () => {
+        submenu.classList.toggle("show");
+    });
+</script>
+
+</html>
