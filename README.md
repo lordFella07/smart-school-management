@@ -22,11 +22,6 @@ git merge main
 
 git pull <!-- dalam branch 'main' >
 
-
-
-Coding
-test test test
-
 follow coding ni untuk sidebar
 
 <!-- SIDEBAR -->
