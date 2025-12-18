@@ -6,7 +6,8 @@ Notes :
 
 After coding (IMPORTANT)
 1. lepas coding, run command "git add ." pastu "git commit -m "message", pastu "git push" (ni paling penting, takpush takdapat pape)
-2. Then gi github, pergi  pull request > new pull request > pilih nama branch yang di codekan (nama masing masing la kot) >
+2. Then gi github, pergi  pull request > new pull request > pilih nama branch yang di codekan (nama masing masing la kot) > create pull request > create pull request > merge pull request (tunggu je loading tu) > confirm merge
+3. habis step ni, kiranya korang dh settle coding, so follow je step before coding kalau nak coding baru
 
 Command notes:
 
