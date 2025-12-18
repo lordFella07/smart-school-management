@@ -8,6 +8,10 @@ git push origin feature/login-page
 
 git checkout epul
 
+git merge main
+
+git pull <!-- dalam branch 'main' >
+
 follow coding ni untuk sidebar
 
 <!-- SIDEBAR -->
