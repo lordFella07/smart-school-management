@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Homepage</title>
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">Smart School System</div>
+
+        <ul class="menu-list">
+            <li><i class="ri-home-2-line"></i><span>Home</span></li>
+            <li><i class="ri-file-text-line"></i><span>Examination</span></li>
+            <li><i class="ri-calendar-check-line"></i><span>Attendance</span></li>
+        </ul>
+
+        <!-- LOGOUT BUTTON -->
+        <div class="logout">
+            <button>
+                <i class="ri-shut-down-line"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- LOGOUT CONFIRMATION MODAL -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Do you want to logout from this account?</p>
+            <div class="modal-buttons">
+                <button id="cancelLogout">Cancel</button>
+                <button id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <div class="topbar">
+            <h3>Hi, Teacher</h3>
+
+            <button id="darkToggle" class="dark-btn">
+                <i class="ri-moon-line"></i>
+            </button>
+        </div>
+
+        <div class="card-box">
+            
+            <div class="card" onclick="location.href='examination.html'">
+                <div class="card-left">
+                    <img src="assets/image/examination-icon.png" alt="Icon">
+                    <p>Examination</p>
+                </div>
+                <div class="card-right">
+                    <img src="assets/image/examination.png" alt="Examination Image">
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='attendance.html'">
+                <div class="card-left">
+                    <img src="assets/image/attendance-icon.png" alt="Icon">
+                    <p>Attendance</p>
+                </div>
+                <div class="card-right">
+                    <img src="assets/image/attendance.png" alt="Attendance Image">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const logoutBtn = document.querySelector(".logout button");
+            const modal = document.getElementById("logoutModal");
+            const cancelBtn = document.getElementById("cancelLogout");
+            const confirmBtn = document.getElementById("confirmLogout");
+
+            // Show modal on logout button click
+            logoutBtn.addEventListener("click", () => {
+                modal.style.display = "flex";
+            });
+
+            // Cancel logout
+            cancelBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Confirm logout
+            confirmBtn.addEventListener("click", () => {
+                window.location.href = 'choice.html';
+            });
+
+            // DARK MODE
+            document.getElementById("darkToggle").addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+            });
+        </script>
+
+</body>
+
+</html>
