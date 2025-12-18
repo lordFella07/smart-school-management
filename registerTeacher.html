@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Teacher</title>
+    <link rel="stylesheet" href="assets/css/register.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="title">CREATE ACCOUNT</h1>
+        <p class="subtitle">It’s quick and easy.</p>
+
+        <div class="register-box">
+
+            <form action="" method="post">
+
+                <input type="text" placeholder="Teacher Name" required>
+
+                <input type="text" placeholder="Certificate Number" required>
+
+                <label class="dob-label">Date of Birth</label>
+                <div class="dob-row">
+                    <select required>
+                        <option selected>Day</option>
+                        <option>1</option><option>2</option><option>3</option>
+                    </select>
+
+                    <select required>
+                        <option selected>Month</option>
+                        <option>Jan</option><option>Feb</option><option>Mar</option>
+                    </select>
+
+                    <select required>
+                        <option selected>Year</option>
+                        <option>1990</option><option>1991</option><option>1992</option>
+                    </select>
+                </div>
+
+                <input type="text" placeholder="Phone Number" required>
+
+                <input type="email" placeholder="Email" required>
+
+                <div class="password-wrap">
+                    <input type="password" placeholder="Password" required>
+                    <span class="toggle-icon">👁️</span>
+                </div>
+
+                <button type="submit" class="register-btn">Register</button>
+
+                <a href="teacherLogin.html" class="login-link">Already have an account?</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
