@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #dcc7b8;
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.register-box {
+    width: 450px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.12);
+}
+
+input, select {
+    width: 95%;
+    padding: 12px;
+    margin-top: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.dob-label {
+    text-align: left;
+    display: block;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.dob-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.dob-row select {
+    width: 32%;
+}
+
+.password-wrap {
+    position: relative;
+}
+
+.toggle-icon {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 13px;
+    background: #c9a38b;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+.register-btn:hover {
+    background: #b68f79;
+}
+
+.login-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #2a78d1;
+    text-decoration: none;
+}
