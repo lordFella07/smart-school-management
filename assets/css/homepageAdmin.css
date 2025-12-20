@@ -85,13 +85,13 @@ body {
 
 .main-bg-wrapper {
     position: absolute;
-    top: 53px; 
+    top: 53px; /* Adjust this to match the height of your topbar */
     left: 0;
     width: 100%;
-    height: calc(100% - 53px); 
+    height: calc(100% - 70px); /* Fill the rest of the space */
     z-index: 0; 
     overflow: hidden;
-    pointer-events: none; 
+    pointer-events: none; /* Allows you to click cards "through" the background */
 }
 
 .background-img {
