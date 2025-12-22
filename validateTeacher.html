@@ -5,221 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart School System - Validate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- General Reset & Typography --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #f0f2f5;
-        }
-
-        /* --- Header Styles --- */
-        .header {
-            background-color: #8c8279; /* Dark taupe color */
-            color: white;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .menu-toggle-icon {
-            margin-right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-        }
-
-        .user-name {
-            margin-right: 15px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .profile-image {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fff;
-        }
-
-        /* --- Main Layout Container --- */
-        .main-container {
-            display: flex;
-            flex: 1;
-            overflow: hidden; /* Prevents double scrollbars */
-        }
-
-        /* --- Sidebar Navigation Styles --- */
-        .sidebar {
-            width: 220px;
-            background-color: #e6d7cb; /* Light beige color */
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0; /* Prevents sidebar from shrinking */
-        }
-
-        .sidebar-menu {
-            list-style: none;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 25px;
-            color: #5a5a5a;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .menu-item:hover {
-            background-color: rgba(0,0,0,0.04);
-            color: #333;
-        }
-
-        /* Style for the currently active menu item */
-        .menu-item.active {
-            color: #a855f7; /* Purple color for active text */
-            background-color: rgba(168, 85, 247, 0.05);
-        }
-        
-        .menu-item.active .icon {
-             color: #a855f7; /* Purple color for active icon */
-        }
-
-        .menu-item .icon {
-            margin-right: 20px;
-            width: 24px;
-            text-align: center;
-            font-size: 1.1rem;
-            color: #7c7c7c;
-        }
-
-        /* --- Main Content Area Styles --- */
-        .content {
-            flex: 1;
-            background-color: #ffffff;
-            padding: 40px;
-            overflow-y: auto; /* Allows content to scroll if it's too long */
-        }
-
-        /* Breadcrumb Header */
-        .breadcrumb {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-bottom: 40px;
-            color: #333;
-            display: flex;
-            align-items: center;
-        }
-
-        .breadcrumb-separator {
-            margin: 0 15px;
-            color: #aaa;
-            font-weight: normal;
-        }
-
-        .current-page {
-            color: #aaa; /* Faded color for the current page */
-        }
-
-        /* Table Container Box */
-        .table-box {
-            border: 1px solid #d0d0d0;
-            padding: 25px;
-            background-color: #fff;
-        }
-
-        /* --- Data Table Styles --- */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .data-table th {
-            text-align: left;
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-            color: #666;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .data-table td {
-            text-align: left;
-            padding: 15px;
-            border-bottom: 1px solid #e0e0e0;
-            color: #333;
-            vertical-align: middle;
-        }
-
-        /* Action Buttons in the Status column */
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-            color: white;
-            transition: opacity 0.2s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .btn-reject {
-            background-color: #ef4444; /* Red */
-        }
-
-        .btn-approve {
-            background-color: #22c55e; /* Green */
-        }
-
-        /* Optional: Column Widths for better layout */
-        .col-no { width: 8%; }
-        .col-name { width: 32%; }
-        .col-cert { width: 30%; }
-        .col-status { width: 30%; }
-
-    </style>
+    <link rel="stylesheet" href="assets/css/validate.css">
 </head>
 <body>
 
     <header class="header">
         <div class="header-left">
-            <i class="fas fa-bars menu-toggle-icon"></i>
+            <i class="fas fa-bars menu-toggle-icon" id="menu-toggle"></i>
             <span>Smart School System</span>
         </div>
         <div class="header-right">
@@ -229,18 +21,134 @@
     </header>
 
     <div class="main-container">
-        
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <ul class="sidebar-menu">
-                <li><a href="#" class="menu-item"><i class="fas fa-home icon"></i> Home</a></li>
-                <li><a href="#" class="menu-item"><i class="fas fa-chalkboard icon"></i> Class</a></li>
-                <li><a href="#" class="menu-item"><i class="fas fa-book icon"></i> Subject</a></li>
-                <li><a href="#" class="menu-item"><i class="fas fa-clipboard-list icon"></i> Student List</a></li>
-                <li><a href="#" class="menu-item"><i class="fas fa-chalkboard-user icon"></i> Teacher List</a></li>
-                <li><a href="#" class="menu-item active"><i class="fas fa-check-circle icon"></i> Validate</a></li>
-                <li><a href="#" class="menu-item"><i class="fas fa-users icon"></i> Class List</a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-home icon"></i> <span class="link-text">Home</span></a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-chalkboard icon"></i> <span class="link-text">Class</span></a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-book icon"></i> <span class="link-text">Subject</span></a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-clipboard-list icon"></i> <span class="link-text">Student List</span></a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-chalkboard-user icon"></i> <span class="link-text">Teacher List</span></a></li>
+                <li><a href="#" class="menu-item active"><i class="fas fa-check-circle icon"></i> <span class="link-text">Validate</span></a></li>
+                <li><a href="#" class="menu-item"><i class="fas fa-users icon"></i> <span class="link-text">Class List</span></a></li>
             </ul>
         </aside>
 
         <main class="content">
-            <div class="
+            <div class="breadcrumb">
+                Hi, Syariful <span class="breadcrumb-separator">&gt;</span> <span class="current-page">Validate</span>
+            </div>
+
+            <div class="table-box">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="col-no">No.</th>
+                            <th class="col-name">Name</th>
+                            <th class="col-cert">Certificate Number</th>
+                            <th class="col-status">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row-1">
+                            <td>1</td>
+                            <td>Maimunah binti Razak</td>
+                            <td>G8574362</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-reject" onclick="openPopup('row-1', 'reject')">Reject</button>
+                                <button class="btn btn-approve" onclick="openPopup('row-1', 'approve')">Approve</button>
+                            </td>
+                        </tr>
+                        <tr id="row-2">
+                            <td>2</td>
+                            <td>Razi bin Jidin</td>
+                            <td>G6574832</td>
+                            <td class="action-buttons">
+                                <button class="btn btn-reject" onclick="openPopup('row-2', 'reject')">Reject</button>
+                                <button class="btn btn-approve" onclick="openPopup('row-2', 'approve')">Approve</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Are You Sure ?</h3>
+            <p id="modalMessage">Do you want to approve this teacher?</p>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn btn-cancel" onclick="closePopup()">Cancel</button>
+                <button id="confirmBtn" class="modal-btn btn-approve" onclick="confirmAction()">Approve</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar Logic
+        const toggleButton = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+        });
+
+        // === POPUP & STATUS UPDATE LOGIC ===
+        const modal = document.getElementById('confirmModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const confirmBtn = document.getElementById('confirmBtn');
+
+        // Variables to track which row we are currently editing
+        let currentRowId = null;
+        let currentAction = null;
+
+        function openPopup(rowId, action) {
+            currentRowId = rowId;
+            currentAction = action;
+            modal.style.display = 'flex';
+
+            if (action === 'approve') {
+                modalMessage.innerText = "Do you want to approve this teacher ?";
+                confirmBtn.innerText = "Approve";
+                confirmBtn.className = "modal-btn btn-approve"; // Green
+            } else {
+                modalMessage.innerText = "Do you want to reject this teacher ?";
+                confirmBtn.innerText = "Reject";
+                confirmBtn.className = "modal-btn btn-reject"; // Red
+            }
+        }
+
+        function closePopup() {
+            modal.style.display = 'none';
+            currentRowId = null;
+            currentAction = null;
+        }
+
+        // The function that runs when you click the button inside the popup
+        function confirmAction() {
+            if (currentRowId && currentAction) {
+                // Find the specific row
+                const row = document.getElementById(currentRowId);
+                // Find the cell with the buttons (the 4th cell, index 3)
+                const actionCell = row.cells[3];
+
+                if (currentAction === 'approve') {
+                    // Replace buttons with Approved text
+                    actionCell.innerHTML = '<span style="color: #22c55e; font-weight: bold;">Approved</span>';
+                } else {
+                    // Replace buttons with Rejected text
+                    actionCell.innerHTML = '<span style="color: #ef4444; font-weight: bold;">Rejected</span>';
+                }
+            }
+            closePopup();
+        }
+
+        // Close modal if clicking outside box
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closePopup();
+            }
+        }
+    </script>
+</body>
+</html>
