@@ -1,9 +1,11 @@
-// Show and Hide password
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
 
-const togglePassword = document.getElementById("togglePassword");
-const passwordInput   = document.getElementById("password");
-
-togglePassword.addEventListener("click", () => {
-    const type = passwordInput.type === "password" ? "text" : "password";
-    passwordInput.type = type;
+togglePassword.addEventListener('click', function () {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    
+    // toggle the eye icon (optional: swap text or icon)
+    this.textContent = type === 'password' ? '👁️' : '🙈';
 });

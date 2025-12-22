@@ -16,15 +16,14 @@
         <div class="logo">Smart School System</div>
 
         <ul class="menu-list">
-            <li><i class="ri-home-2-line"></i><span>Home</span></li>
-            <li><i class="ri-file-text-line"></i><span>Examination</span></li>
-            <li><i class="ri-calendar-check-line"></i><span>Attendance</span></li>
+            <li onclick="location.href='teacherHomepage.html'"><i class="ri-home-2-line"></i><span>Home</span></li>
+            <li onclick="location.href='examination.html'"><i class="ri-file-text-line"></i><span>Examination</span></li>
+            <li onclick="location.href='attendance.html'"><i class="ri-calendar-check-line"></i><span>Attendance</span></li>
         </ul>
 
-        <!-- LOGOUT BUTTON -->
-        <div class="logout">
-            <button>
-                <i class="ri-shut-down-line"></i>
+        <div class="sidebar-bottom">
+            <button id="darkToggle">
+                <i class="ri-moon-line"></i>
             </button>
         </div>
     </div>
@@ -46,13 +45,24 @@
         <div class="topbar">
             <h3>Hi, Teacher</h3>
 
-            <button id="darkToggle" class="dark-btn">
-                <i class="ri-moon-line"></i>
-            </button>
+            <div class="top-right">
+                <div class="profile-btn">
+                    <img src="assets/image/profile-icon.png" alt="Profile">
+                </div>
+
+                <div class="profile-menu" id="profileMenu">
+                    <p id="myProfile">My Profile</p>
+                    <p id="logoutOption">Logout</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-bg-wrapper">
+            <img src="assets/image/teacherbackground.png" class="background-img">
         </div>
 
         <div class="card-box">
-            
+
             <div class="card" onclick="location.href='examination.html'">
                 <div class="card-left">
                     <img src="assets/image/examination-icon.png" alt="Icon">
@@ -75,13 +85,36 @@
         </div>
 
         <script>
-            const logoutBtn = document.querySelector(".logout button");
             const modal = document.getElementById("logoutModal");
             const cancelBtn = document.getElementById("cancelLogout");
             const confirmBtn = document.getElementById("confirmLogout");
 
-            // Show modal on logout button click
-            logoutBtn.addEventListener("click", () => {
+            // PROFILE DROPDOWN
+            const profileBtn = document.querySelector(".profile-btn");
+            const profileMenu = document.getElementById("profileMenu");
+            const logoutOption = document.getElementById("logoutOption");
+
+            // Toggle dropdown
+            profileBtn.addEventListener("click", () => {
+                profileMenu.style.display =
+                    profileMenu.style.display === "block" ? "none" : "block";
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener("click", (e) => {
+                if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.style.display = "none";
+                }
+            });
+
+            // "My Profile" button
+            document.getElementById("myProfile").addEventListener("click", () => {
+                location.href = "teacherProfile.html";
+            });
+
+            // Dropdown logout opens modal
+            logoutOption.addEventListener("click", () => {
+                profileMenu.style.display = "none";
                 modal.style.display = "flex";
             });
 
