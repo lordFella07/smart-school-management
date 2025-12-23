@@ -1,93 +1,128 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: #dcc7b8;
-    font-family: "Inter", sans-serif;
+    box-sizing: border-box; 
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+    background: #e6d7cb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centers the box vertically on the screen */
+    padding: 20px;
 }
 
 .container {
+    width: 100%;
+    max-width: 450px;
     text-align: center;
-    padding-top: 30px;
 }
 
 .title {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 5px;
+    color: #333;
 }
 
 .subtitle {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: #555;
 }
 
+/* --- Registration Box --- */
 .register-box {
-    width: 450px;
-    margin: auto;
     background: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.12);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
 }
 
+/* --- Form Elements --- */
 input, select {
-    width: 95%;
+    width: 100%; /* Changed from 95% to 100% for perfect alignment */
     padding: 12px;
-    margin-top: 12px;
-    border: 1px solid #ccc;
+    margin-top: 15px;
+    border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
+input:focus, select:focus {
+    border-color: #8c8279;
+}
+
+/* --- Date of Birth Section --- */
 .dob-label {
     text-align: left;
     display: block;
     font-size: 13px;
+    font-weight: 600;
     margin-top: 15px;
+    color: #666;
 }
 
 .dob-row {
     display: flex;
-    justify-content: space-between;
+    gap: 10px; /* Modern spacing instead of justify-content */
     margin-top: 5px;
 }
 
 .dob-row select {
-    width: 32%;
+    margin-top: 0; /* Remove top margin inside the row */
+    flex: 1;
 }
 
 .password-wrap {
     position: relative;
+    width: 100%;
 }
 
 .toggle-icon {
     position: absolute;
     right: 15px;
-    top: 17px;
+    top: 28px; 
     font-size: 16px;
     cursor: pointer;
+    color: #888;
 }
 
+.toggle-icon:hover {
+    color: #333;
+}
+
+/* --- Submit Button --- */
 .register-btn {
     width: 100%;
-    padding: 13px;
-    background: #c9a38b;
+    padding: 14px;
+    background: #8c8279;
     border: none;
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 18px;
+    margin-top: 25px;
+    transition: background 0.3s ease;
 }
 
 .register-btn:hover {
-    background: #b68f79;
+    background: #b68f79; 
 }
 
+/* --- Login Link --- */
 .login-link {
-    display: block;
-    margin-top: 15px;
+    display: inline-block;
+    margin-top: 20px;
     font-size: 14px;
     color: #2a78d1;
     text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
 }
