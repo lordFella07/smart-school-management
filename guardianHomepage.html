@@ -1,9 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Homepage</title>
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">Smart School System</div>
+
+        <ul class="menu-list">
+            <li onclick="location.href='teacherHomepage.html'"><i class="ri-home-2-line"></i><span>Home</span></li>
+            <li onclick="location.href='examination.html'"><i class="ri-file-text-line"></i><span>Examination</span></li>
+            <li onclick="location.href='attendance.html'"><i class="ri-calendar-check-line"></i><span>Attendance</span></li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <button id="darkToggle">
+                <i class="ri-moon-line"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- LOGOUT CONFIRMATION MODAL -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Do you want to logout from this account?</p>
+            <div class="modal-buttons">
+                <button id="cancelLogout">Cancel</button>
+                <button id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <div class="topbar">
+            <h3>Hi, Guardian</h3>
+
+            <div class="top-right">
+                <div class="profile-btn">
+                    <img src="assets/image/profile-icon.png" alt="Profile">
+                </div>
+
+                <div class="profile-menu" id="profileMenu">
+                    <p id="myProfile">My Profile</p>
+                    <p id="logoutOption">Logout</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-bg-wrapper">
+            <img src="assets/image/teacherbackground.png" class="background-img">
+        </div>
+
+        <div class="card-box">
+
+            <div class="card" onclick="location.href='examination.html'">
+                <div class="card-left">
+                    <img src="assets/image/examination-icon.png" alt="Icon">
+                    <p>Examination</p>
+                </div>
+                <div class="card-right">
+                    <img src="assets/image/examination.png" alt="Examination Image">
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='attendance.html'">
+                <div class="card-left">
+                    <img src="assets/image/attendance-icon.png" alt="Icon">
+                    <p>Attendance</p>
+                </div>
+                <div class="card-right">
+                    <img src="assets/image/attendance.png" alt="Attendance Image">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const modal = document.getElementById("logoutModal");
+            const cancelBtn = document.getElementById("cancelLogout");
+            const confirmBtn = document.getElementById("confirmLogout");
+
+            // PROFILE DROPDOWN
+            const profileBtn = document.querySelector(".profile-btn");
+            const profileMenu = document.getElementById("profileMenu");
+            const logoutOption = document.getElementById("logoutOption");
+
+            // Toggle dropdown
+            profileBtn.addEventListener("click", () => {
+                profileMenu.style.display =
+                    profileMenu.style.display === "block" ? "none" : "block";
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener("click", (e) => {
+                if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.style.display = "none";
+                }
+            });
+
+            // "My Profile" button
+            document.getElementById("myProfile").addEventListener("click", () => {
+                location.href = "teacherProfile.html";
+            });
+
+            // Dropdown logout opens modal
+            logoutOption.addEventListener("click", () => {
+                profileMenu.style.display = "none";
+                modal.style.display = "flex";
+            });
+
+            // Cancel logout
+            cancelBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Confirm logout
+            confirmBtn.addEventListener("click", () => {
+                window.location.href = 'choice.html';
+            });
+
+            // DARK MODE
+            document.getElementById("darkToggle").addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+            });
+        </script>
+
+</body>
+
 </html>
