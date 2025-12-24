@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart School System - Examination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+    <style>
+        /* Specific Styles for Exam Management */
+        .exam-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #fdfaf8;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e6d7cb;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .filter-group select {
+            padding: 10px;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .score-input {
+            width: 80px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            background: #ffffff;
+            min-width: 40px;
+        }
+
+        .submit-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-primary {
+            background-color: #8c8279;
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #746260;
+        }
+
+        /* Dark mode compatibility for the badge */
+        body.dark-theme .grade-badge { background: #444; color: #fff; }
+        body.dark-theme .exam-filters { background: #2a2a2a; border-color: #444; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <i class="fas fa-bars menu-toggle-icon" id="menu-toggle"></i>
+            <span>Smart School System</span>
+        </div>
+        <div class="header-right">
+            <div class="profile-area" id="profileBtn">
+                <span class="user-name">Teacher</span>
+                <img src="../assets/image/adminICON.png" alt="Profile" class="profile-image">
+            </div>
+            <div class="profile-menu" id="profileMenu">
+                <p onclick="location.href='teacherProfile.html'"><i class="fas fa-user"></i> My Profile</p>
+                <p id="darkToggle"><i class="fas fa-moon"></i> Dark Mode</p>
+                <p id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="teacherHomepage.html" class="menu-item"><i class="fas fa-home icon"></i> <span class="link-text">Home</span></a></li>
+                <li><a href="attendance.html" class="menu-item"><i class="fas fa-calendar-check icon"></i> <span class="link-text">Attendance</span></a></li>
+                <li><a href="examination.html" class="menu-item active"><i class="fas fa-file-invoice icon"></i> <span class="link-text">Examination</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="breadcrumb">
+                Hi, Teacher <span class="breadcrumb-separator">&gt;</span> <span class="current-page">Examination</span>
+            </div>
+
+            <div class="exam-filters">
+                <div class="filter-group">
+                    <label>YEAR GROUP</label>
+                    <select><option>Year 1</option><option>Year 2</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>CLASS</label>
+                    <select><option>1 Bijak</option><option>1 Cerdik</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>SUBJECT</label>
+                    <select><option>Mathematics</option><option>Bahasa Melayu</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>EXAM TYPE</label>
+                    <select><option>Mid-Year Exam</option><option>Final Exam</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>ACADEMIC YEAR</label>
+                    <select><option>2024</option><option>2023</option></select>
+                </div>
+            </div>
+
+            <div class="table-box">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">No.</th>
+                            <th>Student Name</th>
+                            <th style="width: 150px; text-align: center;">Score</th>
+                            <th style="width: 150px; text-align: center;">Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="examTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>Ahmad Eilmie Arif Imran bin Faris</td>
+                            <td style="text-align: center;">
+                                <input type="text" class="score-input" placeholder="0-100">
+                            </td>
+                            <td style="text-align: center;">
+                                <span class="grade-badge">-</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="submit-container">
+                <button class="btn-primary">Submit</button>
+            </div>
+        </main>
+    </div>
+
+    <div id="logoutModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Confirm Logout</h3>
+            <p>Do you want to logout from this account?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-cancel" id="cancelLogout">Cancel</button>
+                <button class="modal-btn btn-reject" id="confirmLogout">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Automatic Grading Logic
+        document.querySelectorAll('.score-input').forEach(input => {
+            input.addEventListener('input', function () {
+                const value = this.value.toUpperCase();
+                const gradeBadge = this.closest('tr').querySelector('.grade-badge');
+
+                if (value === "") {
+                    gradeBadge.innerText = "-";
+                } else if (value === "TH") {
+                    gradeBadge.innerText = "TH";
+                } else {
+                    const score = parseFloat(value);
+                    if (isNaN(score)) {
+                        gradeBadge.innerText = "-";
+                    } else if (score >= 80) { gradeBadge.innerText = "A"; }
+                    else if (score >= 70) { gradeBadge.innerText = "B"; }
+                    else if (score >= 60) { gradeBadge.innerText = "C"; }
+                    else if (score >= 40) { gradeBadge.innerText = "D"; }
+                    else { gradeBadge.innerText = "E"; }
+                }
+            });
+        });
+
+        // UI Logic (Sidebar, Profile, Logout)
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        menuToggle.addEventListener('click', () => sidebar.classList.toggle('collapsed'));
+
+        const profileBtn = document.getElementById('profileBtn');
+        const profileMenu = document.getElementById('profileMenu');
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', () => profileMenu.style.display = 'none');
+
+        const logoutOption = document.getElementById('logoutOption');
+        const logoutModal = document.getElementById('logoutModal');
+        logoutOption.addEventListener('click', () => logoutModal.style.display = 'flex');
+        document.getElementById('cancelLogout').addEventListener('click', () => logoutModal.style.display = 'none');
+        document.getElementById('confirmLogout').addEventListener('click', () => window.location.href = '../choice.html');
+
+        document.getElementById('darkToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+    </script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #dcc7b8;
-    font-family: "Inter", sans-serif;
+    background-color: #e6d7cb;
+    font-family: "Inter", "Segoe UI", sans-serif;
 }
 
 .container {
@@ -96,7 +96,7 @@ body {
 .login-button {
     width: 100%;
     padding: 12px;
-    background-color: #c9a38b;
+    background-color: #8c8279;
     border: none;
     color: #fff;
     font-size: 15px;
