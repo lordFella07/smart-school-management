@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart School System - My Profile</title>
+    <title>Smart School System - edit student profile</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -140,7 +140,7 @@
       </div>
       <div class="header-right">
         <div class="profile-area" id="profileBtn">
-          <span class="user-name">Teacher</span>
+          <span class="user-name">Guardian</span>
           <img
             src="../assets/image/adminICON.png"
             alt="Profile"
@@ -148,9 +148,6 @@
           />
         </div>
         <div class="profile-menu" id="profileMenu">
-          <p onclick="location.href='profile.html'">
-            <i class="fas fa-user"></i> My Profile
-          </p>
           <p id="darkToggle"><i class="fas fa-moon"></i> Dark Mode</p>
           <p id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</p>
         </div>
@@ -161,30 +158,21 @@
       <aside class="sidebar" id="sidebar">
         <ul class="sidebar-menu">
           <li>
-            <a href="teacherHomepage.html" class="menu-item"
+            <a href="guardianHomepage.html" class="menu-item"
               ><i class="fas fa-home icon"></i>
               <span class="link-text">Home</span></a
-            >
-          </li>
-          <li>
-            <a href="attendance.html" class="menu-item"
-              ><i class="fas fa-calendar-check icon"></i>
-              <span class="link-text">Attendance</span></a
-            >
-          </li>
-          <li>
-            <a href="examination.html" class="menu-item"
-              ><i class="fas fa-file-invoice icon"></i>
-              <span class="link-text">Examination</span></a
             >
           </li>
         </ul>
       </aside>
 
       <main class="content">
-        <div class="breadcrumb">
-          My Profile <span class="breadcrumb-separator">&gt;</span>
-          <span class="current-page">Information Details</span>
+        <div class="breadcrumb-studentProfile">
+          Hi, Guardian <span class="breadcrumb-separator">&gt;</span>
+          <span class="current-page">Edit Student Profile</span>
+        </div>
+        <div class="profile-header">
+          <div class="student-info">STUDENT NAME: ISMID SUMBUL BIN FARIS</div>
         </div>
 
         <div class="profile-grid">
@@ -196,8 +184,8 @@
                 class="profile-img-large"
               />
             </div>
-            <h2>Eilmie Imran</h2>
-            <p>Teacher</p>
+            <h2>ISMID SUMBUL</h2>
+            <p>Student</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0" />
             <p style="color: #555">Member since Jan 2024</p>
           </div>
@@ -205,28 +193,32 @@
           <div class="profile-details-right">
             <div class="info-row">
               <div class="label">Full Name</div>
-              <div class="value">Eilmie Imran bin Aiman</div>
+              <div class="value">ISMID SUMBUL BIN FARIS</div>
             </div>
             <div class="info-row">
-              <div class="label">Certificate No.</div>
-              <div class="value">G-857436211</div>
+              <div class="label">Identity Card (IC) Number</div>
+              <div class="value">180111-05-0047</div>
+            </div>
+            <div class="info-row">
+              <div class="label">Year</div>
+              <div class="value">1</div>
+            </div>
+            <div class="info-row">
+              <div class="label">Class</div>
+              <div class="value">IBNU SINAR</div>
             </div>
             <div class="info-row">
               <div class="label">Date of Birth</div>
-              <div class="value">14 May 1988</div>
+              <div class="value">1 November 2018</div>
             </div>
             <div class="info-row">
-              <div class="label">Phone Number</div>
-              <div class="value">+60 12-345 6789</div>
+              <div class="label">Gender</div>
+              <div class="value">MALE</div>
             </div>
             <div class="info-row">
-              <div class="label">Email Address</div>
-              <div class="value">eilmieimran@gmail.com</div>
-            </div>
-            <div class="info-row">
-              <div class="label">Password</div>
-              <div class="value">
-                <span class="password-display">••••••••••••</span>
+              <div class="label">Address</div>
+              <div id="displayAddress" class="value">
+                NO. 69, JALAN BAHAGIA SELALU, 75460 MELAKA
               </div>
             </div>
 
@@ -237,6 +229,14 @@
             </div>
           </div>
         </div>
+        <div class="student-exam-footer-actions">
+          <button
+            class="student-exam-btn-back"
+            onclick="location.href='studentProfile.html'"
+          >
+            BACK
+          </button>
+        </div>
       </main>
     </div>
 
@@ -245,11 +245,11 @@
         <h3 style="margin-bottom: 20px; text-align: center">Update Profile</h3>
 
         <div class="filter-group" style="margin-bottom: 15px">
-          <label>Phone Number</label>
+          <label>Address</label>
           <input
             type="text"
-            id="editPhone"
-            value="+60 12-345 6789"
+            id="editAddress"
+            value=""
             style="
               width: 100%;
               padding: 10px;
@@ -257,52 +257,6 @@
               border: 1px solid #ddd;
             "
           />
-        </div>
-
-        <div class="filter-group" style="margin-bottom: 15px">
-          <label>Email Address</label>
-          <input
-            type="email"
-            id="editEmail"
-            value="eilmieimran@gmail.com"
-            style="
-              width: 100%;
-              padding: 10px;
-              border-radius: 8px;
-              border: 1px solid #ddd;
-            "
-          />
-        </div>
-
-        <div class="filter-group" style="margin-bottom: 20px">
-          <label>New Password</label>
-          <div style="position: relative">
-            <input
-              type="password"
-              id="editPassword"
-              placeholder="Enter new password"
-              style="
-                width: 100%;
-                padding: 10px;
-                border-radius: 8px;
-                border: 1px solid #ddd;
-              "
-            />
-            <i
-              class="fas fa-eye"
-              id="togglePassword"
-              style="
-                position: absolute;
-                right: 10px;
-                top: 12px;
-                cursor: pointer;
-                color: #888;
-              "
-            ></i>
-          </div>
-          <small style="color: #888; font-size: 0.75rem"
-            >Leave blank to keep current password.</small
-          >
         </div>
 
         <div class="modal-buttons" style="justify-content: flex-end; gap: 10px">
@@ -334,14 +288,17 @@
     </div>
 
     <script>
+      // --- SIDEBAR & MENU LOGIC ---
       const menuToggle = document.getElementById("menu-toggle");
       const sidebar = document.getElementById("sidebar");
+
       menuToggle.addEventListener("click", () =>
         sidebar.classList.toggle("collapsed")
       );
 
       const profileBtn = document.getElementById("profileBtn");
       const profileMenu = document.getElementById("profileMenu");
+
       profileBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         profileMenu.style.display =
@@ -353,65 +310,85 @@
         () => (profileMenu.style.display = "none")
       );
 
+      // --- LOGOUT LOGIC ---
       const logoutOption = document.getElementById("logoutOption");
       const logoutModal = document.getElementById("logoutModal");
+
       logoutOption.addEventListener(
         "click",
         () => (logoutModal.style.display = "flex")
       );
-      document
-        .getElementById("cancelLogout")
-        .addEventListener("click", () => (logoutModal.style.display = "none"));
-      document
-        .getElementById("confirmLogout")
-        .addEventListener(
-          "click",
-          () => (window.location.href = "../choice.html")
-        );
 
-      // Dark Mode
+      document.getElementById("cancelLogout").addEventListener("click", () => {
+        logoutModal.style.display = "none";
+      });
+
+      document.getElementById("confirmLogout").addEventListener("click", () => {
+        window.location.href = "../choice.html";
+      });
+
+      // --- DARK MODE ---
       document.getElementById("darkToggle").addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
       });
 
+      // --- PROFILE UPDATE LOGIC ---
       const editModal = document.getElementById("editProfileModal");
-      const passwordInput = document.getElementById("editPassword");
-      const togglePassword = document.getElementById("togglePassword");
 
-      // Open the Modal
+      /**
+       * Opens the edit modal and pre-fills the input with
+       * the current address displayed on the page.
+       */
       function openEditModal() {
+        // Find the current address on the screen
+        // We use index [6] because Address is the 7th '.value' element
+        const currentAddress = document
+          .querySelectorAll(".value")[6]
+          .innerText.trim();
+
+        // Set the input field to match current address
+        document.getElementById("editAddress").value = currentAddress;
+
         editModal.style.display = "flex";
       }
 
-      // Close the Modal
+      /**
+       * Closes the edit modal.
+       */
       function closeEditModal() {
         editModal.style.display = "none";
       }
 
-      // Show/Hide Password Toggle
-      togglePassword.addEventListener("click", () => {
-        const type =
-          passwordInput.getAttribute("type") === "password"
-            ? "text"
-            : "password";
-        passwordInput.setAttribute("type", type);
-        togglePassword.classList.toggle("fa-eye-slash");
-      });
-
+      /**
+       * Saves the new address to the UI.
+       */
       function saveProfile() {
-        const newPhone = document.getElementById("editPhone").value;
-        const newEmail = document.getElementById("editEmail").value;
+        const newAddress = document.getElementById("editAddress").value;
 
-        // In a real app, you'd send this to a database.
-        // For now, we'll just update the UI.
-        alert("Profile Updated Successfully!");
+        if (newAddress.trim() === "") {
+          alert("Please enter a valid address.");
+          return;
+        }
 
-        // Update the values on the main screen
-        document.querySelectorAll(".value")[3].innerText = newPhone;
-        document.querySelectorAll(".value")[4].innerText = newEmail;
+        // Update the UI: Index 6 corresponds to the Address row
+        const valueElements = document.querySelectorAll(".value");
+        if (valueElements[6]) {
+          valueElements[6].innerText = newAddress;
+          alert("Profile Updated Successfully!");
+        }
 
         closeEditModal();
       }
+
+      // Close modal if user clicks anywhere outside of the modal box
+      window.onclick = function (event) {
+        if (event.target == editModal) {
+          closeEditModal();
+        }
+        if (event.target == logoutModal) {
+          logoutModal.style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>

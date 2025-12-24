@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart School System - Guardian Home</title>
+    <title>Smart School System - Guardian Student Profile</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -46,27 +46,37 @@
       </aside>
 
       <main class="content">
-        <div class="breadcrumb">
+        <div class="breadcrumb-studentProfile">
           Hi, Guardian <span class="breadcrumb-separator">&gt;</span>
-          <span class="current-page">Dashboard</span>
+          <span class="current-page">Student Profile</span>
+        </div>
+        <div class="profile-header">
+          <div class="student-info">STUDENT NAME: ISMID SUMBUL BIN FARIS</div>
         </div>
 
-        <div class="student-card-container">
-          <div class="student-card">
-            <div class="image-student-wrapper">
-              <img
-                src="../assets/image/student_photo.png"
-                alt="Student Photo"
-                class="student-photo"
-              />
-            </div>
-            <h3 class="student-name">ISMID SUMBUL BIN FARIS</h3>
-            <button
-              class="see-more-btn"
-              onclick="location.href='studentProfile.html'"
-            >
-              SEE MORE
-            </button>
+        <div class="card-grid">
+          <div
+            class="dashboard-card profile-card"
+            onclick="location.href='studentProfileEdit.html'"
+          >
+            <div class="card-icon"><i class="fas fa-user-check"></i></div>
+            <p>View Student Profile</p>
+          </div>
+
+          <div
+            class="dashboard-card exam-card"
+            onclick="location.href='examinationGuardian.html'"
+          >
+            <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+            <p>View Examination Mark</p>
+          </div>
+
+          <div
+            class="dashboard-card attendance-card"
+            onclick="location.href='attendanceGuardian.html'"
+          >
+            <div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
+            <p>View Attendance Record</p>
           </div>
         </div>
       </main>
