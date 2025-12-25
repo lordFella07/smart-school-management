@@ -106,7 +106,7 @@
       </div>
       <div class="header-right">
         <div class="profile-area" id="profileBtn">
-          <span class="user-name">Teacher</span>
+          <span class="user-name">Guardian</span>
           <img
             src="../assets/image/adminICON.png"
             alt="Profile"
@@ -114,9 +114,6 @@
           />
         </div>
         <div class="profile-menu" id="profileMenu">
-          <p onclick="location.href='teacherProfile.html'">
-            <i class="fas fa-user"></i> My Profile
-          </p>
           <p id="darkToggle"><i class="fas fa-moon"></i> Dark Mode</p>
           <p id="logoutOption"><i class="fas fa-sign-out-alt"></i> Logout</p>
         </div>
@@ -127,87 +124,129 @@
       <aside class="sidebar" id="sidebar">
         <ul class="sidebar-menu">
           <li>
-            <a href="teacherHomepage.html" class="menu-item"
+            <a href="guardianHomepage.html" class="menu-item"
               ><i class="fas fa-home icon"></i>
               <span class="link-text">Home</span></a
-            >
-          </li>
-          <li>
-            <a href="attendance.html" class="menu-item active"
-              ><i class="fas fa-calendar-check icon"></i>
-              <span class="link-text">Attendance</span></a
-            >
-          </li>
-          <li>
-            <a href="examination.html" class="menu-item"
-              ><i class="fas fa-file-invoice icon"></i>
-              <span class="link-text">Examination</span></a
             >
           </li>
         </ul>
       </aside>
 
       <main class="content">
-        <div class="breadcrumb">
-          Hi, Teacher <span class="breadcrumb-separator">&gt;</span>
-          <span class="current-page">Attendance</span>
+        <div class="breadcrumb-studentProfile">
+          Hi, Guardian <span class="breadcrumb-separator">&gt;</span>
+          <span class="current-page">Student Attendance</span>
+        </div>
+        <div class="profile-header">
+          <div class="student-info">STUDENT NAME: ISMID SUMBUL BIN FARIS</div>
         </div>
 
-        <div class="attendance-filters">
-          <div class="filter-group">
-            <label>YEAR</label>
-            <select>
-              <option>Year 1</option>
-              <option>Year 2</option>
-            </select>
+        <div class="stud-attendance-card">
+          <div class="stud-attendance-header-row">
+            <div class="stud-attendance-left-group">
+              <select class="stud-attendance-select">
+                <option>Weekly</option>
+                <option>Monthly</option>
+                <option>Yearly</option>
+              </select>
+
+              <div class="stud-attendance-search-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="stud-attendance-search-input"
+                />
+              </div>
+            </div>
+
+            <div class="stud-attendance-legend">
+              <div class="stud-attendance-legend-item">
+                Present - <span class="stud-attendance-icon-green">✔</span>
+              </div>
+              <div class="stud-attendance-legend-item">
+                Absent - <span class="stud-attendance-icon-red">✖</span>
+              </div>
+            </div>
           </div>
-          <div class="filter-group">
-            <label>CLASS</label>
-            <select>
-              <option>1 Bijak</option>
-              <option>1 Cerdik</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label>DATE</label>
-            <input type="date" value="2023-10-27" />
+
+          <div class="stud-attendance-table-viewport">
+            <table class="stud-attendance-table">
+              <thead>
+                <tr>
+                  <th style="width: 30%">Date</th>
+                  <th style="width: 40%; text-align: center">Status</th>
+                  <th style="width: 30%">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="stud-attendance-date-highlight">02/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>Late</td>
+                </tr>
+                <tr>
+                  <td>01/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>30/06/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>27/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>26/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>25/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>23/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>23/07/2025</td>
+                  <td>
+                    <span class="stud-attendance-status-box-present">✔</span>
+                  </td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div class="table-box">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th style="width: 60px">No.</th>
-                <th>Student Name</th>
-                <th style="width: 250px; text-align: center">Status</th>
-                <th>Notes / Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ahmad Eilmie Arif Imran bin Faris</td>
-                <td>
-                  <div class="status-options">
-                    <label class="radio-label">
-                      <input type="radio" name="s1" checked /> Present
-                    </label>
-                    <label class="radio-label">
-                      <input type="radio" name="s1" /> Absent
-                    </label>
-                  </div>
-                </td>
-                <td>
-                  <input type="text" class="note-input" placeholder="-" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="submit-container">
-          <button class="btn-primary">Submit</button>
+        <div class="student-exam-footer-actions">
+          <button
+            class="student-exam-btn-back"
+            onclick="location.href='studentProfile.html'"
+          >
+            BACK
+          </button>
         </div>
       </main>
     </div>
