@@ -71,7 +71,7 @@
                                 <th style="width: 5%; text-align: center;">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="studentTableBody">
                             <tr>
                                 <td>1</td>
                                 <td>Aina binti Jamil</td>
@@ -140,22 +140,88 @@
 
                 <div class="card-footer">
                     <button class="btn-grey">new student</button>
-                    <button class="btn-red">Delete All</button>
+                    <button class="btn-red" onclick="openDeleteConfirmation()">Delete All</button>
                 </div>
-
             </div>
         </main>
     </div>
 
-   
+    <div id="deleteConfirmModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>Are You Sure ?</h3>
+            <p style="color: #000080; font-weight: 500;">Do you want to delete all students?</p>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn btn-cancel" onclick="closeModals()">Cancel</button>
+                <button class="modal-btn btn-red" onclick="executeDeleteAll()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-box success-box">
+            <p>Students Deleted Successfully !</p>
+        </div>
+    </div>
+
 
     <script>
         // Sidebar Logic
         const toggleButton = document.getElementById('menu-toggle');
         const sidebar = document.getElementById('sidebar');
         toggleButton.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-        });
+            sidebar.classList.toggle('collapsed');});
+
+        // --- DELETE LOGIC ---
+        const confirmModal = document.getElementById('deleteConfirmModal');
+        const successModal = document.getElementById('successModal');
+        const tableBody = document.getElementById('studentTableBody');
+
+        // 1. Show the "Are you sure?" popup
+        function openDeleteConfirmation() {
+            confirmModal.style.display = 'flex';
+        }
+
+        // 2. Close all modals (Cancel button)
+        function closeModals() {
+            confirmModal.style.display = 'none';
+            successModal.style.display = 'none';
+        }
+
+        // 3. User clicked "Delete" inside the popup
+        function executeDeleteAll() {
+            // A. Hide the confirmation
+            confirmModal.style.display = 'none';
+
+            // B. Clear the list (Visually remove rows)
+            // We keep empty rows just for visual consistency if you want, or clear all.
+            // This clears EVERYTHING:
+            tableBody.innerHTML = ''; 
+
+            // If you want to keep the empty grid lines like in the picture:
+            for(let i=0; i<8; i++) {
+                let row = tableBody.insertRow();
+                for(let j=0; j<8; j++) {
+                    let cell = row.insertCell();
+                    cell.innerHTML = '&nbsp;'; // Add empty space to keep row height
+                }
+            }
+
+            // C. Show Success Message
+            successModal.style.display = 'flex';
+
+            // D. Optional: Hide success message after 2 seconds
+            setTimeout(() => {
+                successModal.style.display = 'none';
+            }, 2000);
+        }
+
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            if (event.target == confirmModal || event.target == successModal) {
+                closeModals();
+            }
+        }
 
     </script>
 </body>
